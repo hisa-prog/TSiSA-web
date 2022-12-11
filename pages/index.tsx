@@ -311,7 +311,8 @@ const Home: NextPage = () => {
                 } mt-4 rounded-md w-max py-1 px-10 self-center bg-black/50 text-2xl`}
                 disabled={numOfObjects < 5}
                 onClick={() => {
-                  numOfObjects >= 5 && setStep(step + 1);
+                  if(numOfObjects % 1 != 0) alert('Число не может быть дробным')
+                  else numOfObjects >= 5 && setStep(step + 1);
                 }}
               >
                 Перейти к следующему шагу
@@ -904,7 +905,7 @@ const Home: NextPage = () => {
                 onClick={() => {
                   getFinalTable()
                 }}>
-                Рассчитать и выразить в таблицу
+                Рассчитать и выразить в таблице
               </button>
               <button className={`${finalTable.length === 0 ? 'text-white/40' : 'text-white cursor-pointer'} 
                 mt-4 rounded-md w-max py-1 px-2 bg-black/50 text-base`}

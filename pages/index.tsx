@@ -555,7 +555,7 @@ const Home: NextPage = () => {
               {criteries.map((item, index) => (
                 <div key={index} className={`${index === stepOfCriteriy ? 'flex' : 'hidden'} flex-col justify-center`}>
                   <p className="text-white text-4xl text-center">
-                    Введите лингвистические переменные для K{index+1} через пробелы
+                    Введите значения ЛП для K{index+1} через пробелы
                   </p>
                   <div className="flex items-center">
                     <input

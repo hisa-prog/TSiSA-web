@@ -674,7 +674,7 @@ const Home: NextPage = () => {
             <div className="flex flex-col justify-center">
 
               <p className="text-white text-4xl text-center my-4">
-                Введите ограничения для 3-х переменных критерия
+                Введите границы ограничения для 3-х переменных критерия
               </p>
               <div className="flex flex-col h-[16vh] overflow-y-scroll">
               {funcTables.map((table, tableIndex) => (

@@ -676,7 +676,7 @@ const Home: NextPage = () => {
               <p className="text-white text-4xl text-center my-4">
                 Введите ограничения для 3-х переменных критерия
               </p>
-              <div className="flex flex-col h-[14vh] overflow-y-scroll">
+              <div className="flex flex-col h-[16vh] overflow-y-scroll">
               {funcTables.map((table, tableIndex) => (
                 <div key={tableIndex} className="flex flex-col">
                   <p className="text-lg text-white my-1">{criteries[tableIndex]} (дробные значения прописывать через точку)</p>
@@ -720,7 +720,7 @@ const Home: NextPage = () => {
               <p className="text-white text-4xl text-center my-4">
                 Таблицы критериев
               </p>
-              <div className="flex flex-col h-[16vh] overflow-y-scroll mt-4">
+              <div className="flex flex-col h-[20vh] overflow-y-scroll mt-4">
               {funcTables.map((table, tableIndex) => (
                 <div key={tableIndex} className="mx-4 border-4 rounded-sm border-white/40 mb-4 last:mb-0">
                   <p className="text-xl text-white text-center p-2">{criteries[tableIndex]}</p>

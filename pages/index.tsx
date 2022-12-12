@@ -312,7 +312,7 @@ const Home: NextPage = () => {
                 disabled={numOfObjects < 5}
                 onClick={() => {
                   if(numOfObjects % 1 != 0) alert('Число не может быть дробным')
-                  else numOfObjects >= 5 && setStep(step + 1);
+                  else if(numOfObjects >= 5 && numOfObjects % 1 === 0) setStep(step + 1);
                 }}
               >
                 Перейти к следующему шагу

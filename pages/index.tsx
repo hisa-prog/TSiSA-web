@@ -37,12 +37,17 @@ const Home: NextPage = () => {
     if(stepOfCriteriy != criteries.length - 1) setStepOfCriteriy(stepOfCriteriy + 1)
   }
 
-  const [numOfScale, setNumOfScale] = useState(0);
+  const [numOfScale, setNumOfScale] = useState(100);
   const handleInputNumOfScale = (e: any) => {
     setNumOfScale(e.target.value);
   };
 
-  const [numOfScaleStep, setNumOfScaleStep] = useState(0);
+  const [nameOfScale, setNameOfScale] = useState('балльная шкала');
+  const handleInputNameOfScale = (e: any) => {
+    setNameOfScale(e.target.value);
+  };
+
+  const [numOfScaleStep, setNumOfScaleStep] = useState(5);
   const handleInputNumOfScaleStep = (e: any) => {
     setNumOfScaleStep(e.target.value);
   };
@@ -285,7 +290,12 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <div className="w-screen h-screen bg-home bg-no-repeat bg-cover flex justify-center items-center ">
+      <div className="w-screen h-screen bg-home bg-no-repeat bg-cover flex justify-center items-center relative">
+        <div className="absolute bottom-0 mx-auto text-white p-4 text-center flex flex-col">
+          Программный продукт реализующий метод нечёткого многокритериального оценивания на <br/> 
+          основе функции принадлежности лингвистической переменной, заданной в табличной форме. 
+          <p className="text-center mt-1">Выполнен студентом гр 430-4: Завзятовым В.С.</p>
+        </div>
         <div className="bg-[rgb(50,42,127)]/40 backdrop-blur-sm w-max h-max rounded-lg p-8">
           {step === 0 ? (
             <div className="flex flex-col justify-center">
@@ -629,18 +639,27 @@ const Home: NextPage = () => {
           ) : step === 5 ? (
             <div className="flex flex-col justify-center">
               <p className="text-white text-4xl text-center">
-                Выберите максимальное значение балльной шкалы
+                Введите измерительную шкалу и максимальную границу
               </p>
               <p className="text-white/40 text-2xl text-left">
                 Например, 100 балльная шкала
               </p>
-              <input
-                value={numOfScale}
-                onChange={handleInputNumOfScale}
-                type="number"
-                placeholder="100"
-                className="rounded-lg bg-black/50 outline-none mt-4 text-3xl font-normal text-white w-24 p-2"
-              />
+              <div className="flex">
+                <input
+                  value={numOfScale}
+                  onChange={handleInputNumOfScale}
+                  type="number"
+                  placeholder="100"
+                  className="rounded-lg bg-black/50 outline-none mt-4 text-3xl font-normal text-white w-24 p-2"
+                />
+                <input
+                value={nameOfScale}
+                onChange={handleInputNameOfScale}
+                type="text"
+                placeholder="балльная шкала"
+                className="rounded-lg bg-black/50 outline-none ml-2 mt-4 text-3xl font-normal text-white w-60 p-2"
+                />
+              </div>
               <p className="text-white text-4xl text-center">
                 Выберите шаг
               </p>
@@ -790,7 +809,7 @@ const Home: NextPage = () => {
                       Введите значения для альтернатив критерия {tableInd + 1}
                     </p>
                     <p className="text-lg text-white/40">
-                      Балльная шкала: {numOfScale}, Шаг: {numOfScaleStep}
+                      {nameOfScale}: {numOfScale}, Шаг: {numOfScaleStep}
                     </p>
                   
                     <div className="flex flex-col mt-4">
